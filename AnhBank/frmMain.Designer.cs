@@ -124,6 +124,7 @@
             this.barButtonKhachHang.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_team_40px;
             this.barButtonKhachHang.Name = "barButtonKhachHang";
             this.barButtonKhachHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonKhachHang_ItemClick);
             // 
             // barButtonTaiKhoan
             // 
@@ -132,6 +133,7 @@
             this.barButtonTaiKhoan.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_credit_card_40px;
             this.barButtonTaiKhoan.Name = "barButtonTaiKhoan";
             this.barButtonTaiKhoan.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTaiKhoan_ItemClick);
             // 
             // barButtonNhanVien
             // 
@@ -140,6 +142,7 @@
             this.barButtonNhanVien.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_administrator_male_40px;
             this.barButtonNhanVien.Name = "barButtonNhanVien";
             this.barButtonNhanVien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonNhanVien_ItemClick);
             // 
             // barButtonGuiRutTien
             // 

@@ -57,7 +57,7 @@
             // 
             tENSERVERLabel.AutoSize = true;
             tENSERVERLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            tENSERVERLabel.Location = new System.Drawing.Point(300, 186);
+            tENSERVERLabel.Location = new System.Drawing.Point(266, 186);
             tENSERVERLabel.Name = "tENSERVERLabel";
             tENSERVERLabel.Size = new System.Drawing.Size(74, 17);
             tENSERVERLabel.TabIndex = 0;
@@ -88,7 +88,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SeaShell;
-            this.label1.Location = new System.Drawing.Point(445, 112);
+            this.label1.Location = new System.Drawing.Point(411, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 33);
             this.label1.TabIndex = 7;
@@ -99,7 +99,7 @@
             this.btnDangNhap.BackColor = System.Drawing.Color.Chartreuse;
             this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.Color.Blue;
-            this.btnDangNhap.Location = new System.Drawing.Point(477, 351);
+            this.btnDangNhap.Location = new System.Drawing.Point(443, 351);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(123, 35);
             this.btnDangNhap.TabIndex = 6;
@@ -110,7 +110,7 @@
             // labelControl2
             // 
             this.labelControl2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl2.ImageOptions.SvgImage")));
-            this.labelControl2.Location = new System.Drawing.Point(303, 291);
+            this.labelControl2.Location = new System.Drawing.Point(269, 291);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(32, 32);
             this.labelControl2.TabIndex = 5;
@@ -118,14 +118,14 @@
             // labelControl1
             // 
             this.labelControl1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.ImageOptions.Image")));
-            this.labelControl1.Location = new System.Drawing.Point(303, 235);
+            this.labelControl1.Location = new System.Drawing.Point(269, 235);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(32, 32);
             this.labelControl1.TabIndex = 4;
             // 
             // txtBoxPassword
             // 
-            this.txtBoxPassword.Location = new System.Drawing.Point(395, 292);
+            this.txtBoxPassword.Location = new System.Drawing.Point(361, 292);
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxPassword.Properties.Appearance.Options.UseFont = true;
@@ -135,7 +135,7 @@
             // 
             // txtBoxUsername
             // 
-            this.txtBoxUsername.Location = new System.Drawing.Point(395, 236);
+            this.txtBoxUsername.Location = new System.Drawing.Point(361, 236);
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxUsername.Properties.Appearance.Options.UseFont = true;
@@ -150,7 +150,7 @@
             this.cmBoxServerName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmBoxServerName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmBoxServerName.FormattingEnabled = true;
-            this.cmBoxServerName.Location = new System.Drawing.Point(395, 180);
+            this.cmBoxServerName.Location = new System.Drawing.Point(361, 180);
             this.cmBoxServerName.Name = "cmBoxServerName";
             this.cmBoxServerName.Size = new System.Drawing.Size(278, 29);
             this.cmBoxServerName.TabIndex = 1;

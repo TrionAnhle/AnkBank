@@ -56,11 +56,23 @@ namespace AnhBank
                 Program.mHoten = result.GetString(1);
                 Program.mGroup = result.GetString(2);
                 result.Close();
-                Program.frmChinh.pageQuanLy.Visible = Program.frmChinh.pageThongKe.Visible = true;
-                Program.frmChinh.barButtonThoat.Enabled = true;
-                Program.frmChinh.barButtonDangNhap.Enabled = false;
-                Program.frmChinh.hienThiStatus();
-                this.Close();
+                SqlDataReader trangthai = Program.ExecSqlDataReader(
+                    "select trangthaixoa from nhanvien where manv ='"+Program.username+"'");
+                if (trangthai.HasRows)
+                {
+                    trangthai.Read();
+                    if (trangthai.GetInt32(0) == 1)
+                    {
+                        MessageBox.Show("Bạn không thể đăng nhập hệ thống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                        trangthai.Close();
+                    }
+                    Program.frmChinh.pageQuanLy.Visible = Program.frmChinh.pageThongKe.Visible = true;
+                    Program.frmChinh.barButtonThoat.Enabled = true;
+                    Program.frmChinh.barButtonDangNhap.Enabled = false;
+                    Program.frmChinh.hienThiStatus();
+                    this.Close();
+                }
             }
         }
 

@@ -56,5 +56,41 @@ namespace AnhBank
             Program.mlogin = Program.password = "";
             statusMa.Text = statusNhom.Text = statusTen.Text = "";
         }
+
+        private void barButtonNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExits(typeof(frmNhanVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmNhanVien f = new frmNhanVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExits(typeof(frmKhachHang));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmKhachHang f = new frmKhachHang();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExits(typeof(frmTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaiKhoan f = new frmTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
