@@ -70,11 +70,13 @@ namespace AnhBank
             catch (InvalidOperationException ex)
             {
                 Program.conn.Close();
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK);
                 return null;
             }
             catch (SqlException ex)
             {
                 Program.conn.Close();
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK);
                 return null;
             }
         }
@@ -101,9 +103,7 @@ namespace AnhBank
             }
             catch (SqlException ex)
             {
-                if (ex.Message.Contains("Error converting data type varchar to int"))
-                    MessageBox.Show("Bạn format Cell lại cột \"Ngày Thi\" qua kiểu Number hoặc mở File Excel.");
-                else MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message +"\n"+ex.State);
                 conn.Close();
                 return ex.State; // trang thai lỗi gởi từ RAISERROR trong SQL Server qua
             }
@@ -119,6 +119,7 @@ namespace AnhBank
                 name = result.GetString(0);
                 result.Close();
             }
+            if(result != null) result.Close();
             return name;
         }
 

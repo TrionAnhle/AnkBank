@@ -151,6 +151,7 @@
             this.barButtonGuiRutTien.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_bank_building_64px;
             this.barButtonGuiRutTien.Name = "barButtonGuiRutTien";
             this.barButtonGuiRutTien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonGuiRutTien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonGuiRutTien_ItemClick);
             // 
             // barButtonChuyenTien
             // 
@@ -159,6 +160,7 @@
             this.barButtonChuyenTien.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_initiate_money_transfer_30px;
             this.barButtonChuyenTien.Name = "barButtonChuyenTien";
             this.barButtonChuyenTien.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonChuyenTien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonChuyenTien_ItemClick);
             // 
             // barButtonTKGiaoDich
             // 

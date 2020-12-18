@@ -506,6 +506,7 @@
             // cmbPhaiNV
             // 
             this.cmbPhaiNV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsNV, "PHAI", true));
+            this.cmbPhaiNV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPhaiNV.FormattingEnabled = true;
             this.cmbPhaiNV.Location = new System.Drawing.Point(333, 85);
             this.cmbPhaiNV.Name = "cmbPhaiNV";

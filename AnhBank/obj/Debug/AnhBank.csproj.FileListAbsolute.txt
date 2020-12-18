@@ -92,3 +92,6 @@ D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\bin\Debug\ja\DevExpress.Office.
 D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\bin\Debug\ru\DevExpress.Office.v19.2.Core.resources.dll
 D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.frmKhachHang.resources
 D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.frmTaiKhoan.resources
+D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.frmChuyenTien.resources
+D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.WaitForm1.resources
+D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.frmGoiRutTien.resources

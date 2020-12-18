@@ -92,5 +92,29 @@ namespace AnhBank
                 f.Show();
             }
         }
+
+        private void barButtonChuyenTien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExits(typeof(frmChuyenTien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmChuyenTien f = new frmChuyenTien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonGuiRutTien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExits(typeof(frmGoiRutTien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmGoiRutTien f = new frmGoiRutTien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

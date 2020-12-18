@@ -41,6 +41,7 @@
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHienThi = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -48,6 +49,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSPhanManh = new AnhBank.DSPhanManh();
             this.DS = new AnhBank.DS();
             this.bdsTK = new System.Windows.Forms.BindingSource(this.components);
             this.taiKhoanTableAdapter = new AnhBank.DSTableAdapters.TaiKhoanTableAdapter();
@@ -59,21 +62,21 @@
             this.colSODU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grBoxThongTin = new System.Windows.Forms.GroupBox();
+            this.btnKiemTra = new System.Windows.Forms.Button();
             this.txtMaCN = new DevExpress.XtraEditors.TextEdit();
             this.spinEtSoDu = new DevExpress.XtraEditors.SpinEdit();
             this.txtCMND = new DevExpress.XtraEditors.TextEdit();
             this.txtStk = new DevExpress.XtraEditors.TextEdit();
-            this.dSPhanManh = new AnhBank.DSPhanManh();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.v_DS_PHANMANHTableAdapter = new AnhBank.DSPhanManhTableAdapters.V_DS_PHANMANHTableAdapter();
-            this.btnHienThi = new DevExpress.XtraBars.BarButtonItem();
-            this.btnKiemTra = new System.Windows.Forms.Button();
+            this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             sOTKLabel = new System.Windows.Forms.Label();
             cMNDLabel = new System.Windows.Forms.Label();
             sODULabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSPhanManh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanGridControl)).BeginInit();
@@ -83,8 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinEtSoDu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStk.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSPhanManh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // sOTKLabel
@@ -138,9 +139,10 @@
             this.btnXoa,
             this.btnGhi,
             this.btnPhucHoi,
-            this.btnHienThi});
+            this.btnHienThi,
+            this.btnLamMoi});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 6;
+            this.barManager1.MaxItemId = 7;
             // 
             // bar2
             // 
@@ -154,7 +156,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnGhi),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnPhucHoi),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnHienThi)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHienThi),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnLamMoi)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -204,6 +207,16 @@
             this.btnPhucHoi.Name = "btnPhucHoi";
             this.btnPhucHoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
+            // 
+            // btnHienThi
+            // 
+            this.btnHienThi.Caption = "Hiển thị thông tin";
+            this.btnHienThi.Id = 5;
+            this.btnHienThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHienThi.ImageOptions.Image")));
+            this.btnHienThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnHienThi.ImageOptions.LargeImage")));
+            this.btnHienThi.Name = "btnHienThi";
+            this.btnHienThi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnHienThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHienThi_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -268,6 +281,16 @@
             this.cmbChiNhanh.TabIndex = 0;
             this.cmbChiNhanh.ValueMember = "TENSERVER";
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
+            // 
+            // vDSPHANMANHBindingSource
+            // 
+            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
+            this.vDSPHANMANHBindingSource.DataSource = this.dSPhanManh;
+            // 
+            // dSPhanManh
+            // 
+            this.dSPhanManh.DataSetName = "DSPhanManh";
+            this.dSPhanManh.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DS
             // 
@@ -370,6 +393,16 @@
             this.grBoxThongTin.TabStop = false;
             this.grBoxThongTin.Text = "Thông tin tài khoản";
             // 
+            // btnKiemTra
+            // 
+            this.btnKiemTra.Location = new System.Drawing.Point(764, 51);
+            this.btnKiemTra.Name = "btnKiemTra";
+            this.btnKiemTra.Size = new System.Drawing.Size(75, 23);
+            this.btnKiemTra.TabIndex = 8;
+            this.btnKiemTra.Text = "Kiểm tra";
+            this.btnKiemTra.UseVisualStyleBackColor = true;
+            this.btnKiemTra.Click += new System.EventHandler(this.btnKiemTra_Click);
+            // 
             // txtMaCN
             // 
             this.txtMaCN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTK, "MACN", true));
@@ -416,39 +449,18 @@
             this.txtStk.Size = new System.Drawing.Size(202, 20);
             this.txtStk.TabIndex = 1;
             // 
-            // dSPhanManh
-            // 
-            this.dSPhanManh.DataSetName = "DSPhanManh";
-            this.dSPhanManh.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vDSPHANMANHBindingSource
-            // 
-            this.vDSPHANMANHBindingSource.DataMember = "V_DS_PHANMANH";
-            this.vDSPHANMANHBindingSource.DataSource = this.dSPhanManh;
-            // 
             // v_DS_PHANMANHTableAdapter
             // 
             this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
-            // btnHienThi
+            // btnLamMoi
             // 
-            this.btnHienThi.Caption = "Hiển thị thông tin";
-            this.btnHienThi.Id = 5;
-            this.btnHienThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnHienThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnHienThi.Name = "btnHienThi";
-            this.btnHienThi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnHienThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHienThi_ItemClick);
-            // 
-            // btnKiemTra
-            // 
-            this.btnKiemTra.Location = new System.Drawing.Point(764, 51);
-            this.btnKiemTra.Name = "btnKiemTra";
-            this.btnKiemTra.Size = new System.Drawing.Size(75, 23);
-            this.btnKiemTra.TabIndex = 8;
-            this.btnKiemTra.Text = "Kiểm tra";
-            this.btnKiemTra.UseVisualStyleBackColor = true;
-            this.btnKiemTra.Click += new System.EventHandler(this.btnKiemTra_Click);
+            this.btnLamMoi.Caption = "Làm mới";
+            this.btnLamMoi.Id = 6;
+            this.btnLamMoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnLamMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLamMoi_ItemClick);
             // 
             // frmTaiKhoan
             // 
@@ -471,6 +483,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSPhanManh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanGridControl)).EndInit();
@@ -481,8 +495,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinEtSoDu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStk.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSPhanManh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,5 +536,6 @@
         private DSPhanManhTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private DevExpress.XtraBars.BarButtonItem btnHienThi;
         private System.Windows.Forms.Button btnKiemTra;
+        private DevExpress.XtraBars.BarButtonItem btnLamMoi;
     }
 }

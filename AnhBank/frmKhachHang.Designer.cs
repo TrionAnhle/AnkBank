@@ -489,6 +489,7 @@
             // cmbPhai
             // 
             this.cmbPhai.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsKH, "PHAI", true));
+            this.cmbPhai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPhai.FormattingEnabled = true;
             this.cmbPhai.Location = new System.Drawing.Point(366, 99);
             this.cmbPhai.Name = "cmbPhai";

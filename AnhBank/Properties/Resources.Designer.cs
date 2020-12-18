@@ -73,9 +73,49 @@ namespace AnhBank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_bank_100px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_bank_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_bank_500px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_bank_500px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_bank_building_200px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_bank_building_200px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bank_building_64px {
             get {
                 object obj = ResourceManager.GetObject("icons8_bank_building_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_checkmark_48px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_checkmark_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +153,26 @@ namespace AnhBank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_handshake_64px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_handshake_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_handshake_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_handshake_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_initiate_money_transfer_30px {
             get {
                 object obj = ResourceManager.GetObject("icons8_initiate_money_transfer_30px", resourceCulture);
@@ -126,6 +186,16 @@ namespace AnhBank.Properties {
         internal static System.Drawing.Bitmap icons8_mastercard_credit_card_40px {
             get {
                 object obj = ResourceManager.GetObject("icons8_mastercard_credit_card_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_right_96px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_right_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

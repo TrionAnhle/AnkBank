@@ -133,15 +133,15 @@ namespace AnhBank
             }
             else result.Close();
             // Kiểm tra đã tồn tại tài khoản này chưa
-            SqlDataReader result2 = Program.ExecSqlDataReader("exec sp_KiemTraTaiKhoan '" + txtStk.Text + "'");
-            if (result2 != null && result2.HasRows)
+            SqlDataReader result2 = Program.ExecSqlDataReader("exec SP_TimTaiKhoan '" + txtStk.Text + "'");
+            if (result2.HasRows)
             {
                 MessageBox.Show("Số tài khoản này đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtStk.Focus();
                 result2.Close();
                 return;
             }
-
+            result2.Close();
 
             try
             {
@@ -216,7 +216,7 @@ namespace AnhBank
         private void btnHienThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String CMND = ((DataRowView)bdsTK[bdsTK.Position])["CMND"].ToString();
-            SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimKhachHang '" + txtCMND.Text + "'");
+            SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimKhachHang '" + CMND + "'");
             if (result != null && result.HasRows)
             {
                 result.Read();
@@ -235,12 +235,17 @@ namespace AnhBank
         {
             String stk = ((DataRowView)bdsTK[bdsTK.Position])["SOTK"].ToString();
             SqlDataReader result = Program.ExecSqlDataReader("exec SP_GiaoDichCuaTaiKhoan '" + stk + "'");
-            if (!result.HasRows)
+            if (result.HasRows)
             {
-                MessageBox.Show("Tài khoản này không được sửa vì đã phát sinh giao dịch!", "Lỗi",
-                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                result.Read();
+                if (result.GetInt32(0) == 1)
+                {
+                    MessageBox.Show("Tài khoản này không được sửa vì đã phát sinh giao dịch!", "Lỗi",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    result.Close();
+                    return;
+                }
                 result.Close();
-                return;
             }
             if (!result.IsClosed) result.Close();
 
@@ -261,12 +266,17 @@ namespace AnhBank
                 // kiem tra tai khoan da phat sinh giao dich chua
                 stk = ((DataRowView)bdsTK[bdsTK.Position])["SOTK"].ToString();
                 SqlDataReader result = Program.ExecSqlDataReader("exec SP_GiaoDichCuaTaiKhoan '" + stk + "'");
-                if (!result.HasRows)
+                if (result.HasRows)
                 {
-                    MessageBox.Show("Tài khoản này không được sửa vì đã phát sinh giao dịch!", "Lỗi",
-                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    result.Read();
+                    if (result.GetInt32(0) == 1)
+                    {
+                        MessageBox.Show("Tài khoản này không được sửa vì đã phát sinh giao dịch!", "Lỗi",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
                         result.Close();
-                    return;
+                        return;
+                    }
+                    result.Close();
                 }
                 result.Close();
                 try
@@ -286,6 +296,11 @@ namespace AnhBank
                 }
             }
             if (bdsTK.Count == 0) btnXoa.Enabled = false;
+        }
+
+        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.taiKhoanTableAdapter.Fill(this.DS.TaiKhoan);
         }
     }
 }
