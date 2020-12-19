@@ -46,6 +46,8 @@ namespace AnhBank {
         
         private global::System.Data.DataRelation relationFK_TaiKhoan_ChiNhanh;
         
+        private global::System.Data.DataRelation relationFK_TaiKhoan_KhachHang;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -329,6 +331,7 @@ namespace AnhBank {
             this.relationFK_KhachHang_ChiNhanh = this.Relations["FK_KhachHang_ChiNhanh"];
             this.relationFK_NhanVien_ChiNhanh = this.Relations["FK_NhanVien_ChiNhanh"];
             this.relationFK_TaiKhoan_ChiNhanh = this.Relations["FK_TaiKhoan_ChiNhanh"];
+            this.relationFK_TaiKhoan_KhachHang = this.Relations["FK_TaiKhoan_KhachHang"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -387,6 +390,13 @@ namespace AnhBank {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_TaiKhoan_KhachHang", new global::System.Data.DataColumn[] {
+                        this.tableKhachHang.CMNDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTaiKhoan.CMNDColumn});
+            this.tableTaiKhoan.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_GD_CHUYENTIEN_NhanVien = new global::System.Data.DataRelation("FK_GD_CHUYENTIEN_NhanVien", new global::System.Data.DataColumn[] {
                         this.tableNhanVien.MANVColumn}, new global::System.Data.DataColumn[] {
                         this.tableGD_CHUYENTIEN.MANVColumn}, false);
@@ -407,6 +417,10 @@ namespace AnhBank {
                         this.tableChiNhanh.MACNColumn}, new global::System.Data.DataColumn[] {
                         this.tableTaiKhoan.MACNColumn}, false);
             this.Relations.Add(this.relationFK_TaiKhoan_ChiNhanh);
+            this.relationFK_TaiKhoan_KhachHang = new global::System.Data.DataRelation("FK_TaiKhoan_KhachHang", new global::System.Data.DataColumn[] {
+                        this.tableKhachHang.CMNDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTaiKhoan.CMNDColumn}, false);
+            this.Relations.Add(this.relationFK_TaiKhoan_KhachHang);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2367,13 +2381,16 @@ namespace AnhBank {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TaiKhoanRow AddTaiKhoanRow(string SOTK, string CMND, decimal SODU, ChiNhanhRow parentChiNhanhRowByFK_TaiKhoan_ChiNhanh) {
+            public TaiKhoanRow AddTaiKhoanRow(string SOTK, KhachHangRow parentKhachHangRowByFK_TaiKhoan_KhachHang, decimal SODU, ChiNhanhRow parentChiNhanhRowByFK_TaiKhoan_ChiNhanh) {
                 TaiKhoanRow rowTaiKhoanRow = ((TaiKhoanRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SOTK,
-                        CMND,
+                        null,
                         SODU,
                         null};
+                if ((parentKhachHangRowByFK_TaiKhoan_KhachHang != null)) {
+                    columnValuesArray[1] = parentKhachHangRowByFK_TaiKhoan_KhachHang[0];
+                }
                 if ((parentChiNhanhRowByFK_TaiKhoan_ChiNhanh != null)) {
                     columnValuesArray[3] = parentChiNhanhRowByFK_TaiKhoan_ChiNhanh[0];
                 }
@@ -2996,6 +3013,17 @@ namespace AnhBank {
             public void SetMACNNull() {
                 this[this.tableKhachHang.MACNColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TaiKhoanRow[] GetTaiKhoanRows() {
+                if ((this.Table.ChildRelations["FK_TaiKhoan_KhachHang"] == null)) {
+                    return new TaiKhoanRow[0];
+                }
+                else {
+                    return ((TaiKhoanRow[])(base.GetChildRows(this.Table.ChildRelations["FK_TaiKhoan_KhachHang"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3278,6 +3306,17 @@ namespace AnhBank {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_TaiKhoan_ChiNhanh"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public KhachHangRow KhachHangRow {
+                get {
+                    return ((KhachHangRow)(this.GetParentRow(this.Table.ParentRelations["FK_TaiKhoan_KhachHang"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_TaiKhoan_KhachHang"]);
                 }
             }
             
@@ -5427,8 +5466,7 @@ SELECT MANV, HO, TEN, DIACHI, PHAI, SODT, MACN, TrangThaiXoa FROM NhanVien WHERE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MANV, HO, TEN, DIACHI, PHAI, SODT, MACN, TrangThaiXoa FROM dbo.NhanVien\r\nW" +
-                "HERE TrangThaiXoa = 0";
+            this._commandCollection[0].CommandText = "SELECT MANV, HO, TEN, DIACHI, PHAI, SODT, MACN, TrangThaiXoa FROM dbo.NhanVien";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6409,6 +6447,15 @@ SELECT SOTK, CMND, SODU, MACN FROM TaiKhoan WHERE (SOTK = @SOTK)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._khachHangTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.KhachHang.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._khachHangTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._nhanVienTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.NhanVien.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6433,15 +6480,6 @@ SELECT SOTK, CMND, SODU, MACN FROM TaiKhoan WHERE (SOTK = @SOTK)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._gD_GOIRUTTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._khachHangTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.KhachHang.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._khachHangTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6472,6 +6510,14 @@ SELECT SOTK, CMND, SODU, MACN FROM TaiKhoan WHERE (SOTK = @SOTK)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._khachHangTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.KhachHang.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._khachHangTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._nhanVienTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.NhanVien.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6493,14 +6539,6 @@ SELECT SOTK, CMND, SODU, MACN FROM TaiKhoan WHERE (SOTK = @SOTK)";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._gD_GOIRUTTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._khachHangTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.KhachHang.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._khachHangTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6530,14 +6568,6 @@ SELECT SOTK, CMND, SODU, MACN FROM TaiKhoan WHERE (SOTK = @SOTK)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._khachHangTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.KhachHang.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._khachHangTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._gD_GOIRUTTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.GD_GOIRUT.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6559,6 +6589,14 @@ SELECT SOTK, CMND, SODU, MACN FROM TaiKhoan WHERE (SOTK = @SOTK)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._nhanVienTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._khachHangTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.KhachHang.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._khachHangTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

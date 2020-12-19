@@ -116,5 +116,10 @@ namespace AnhBank
                 f.Show();
             }
         }
+
+        private void barButtonTKTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+        }
     }
 }

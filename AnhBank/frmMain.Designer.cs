@@ -90,6 +90,7 @@
             this.barButtonTKTaiKhoan.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_mastercard_credit_card_40px;
             this.barButtonTKTaiKhoan.Name = "barButtonTKTaiKhoan";
             this.barButtonTKTaiKhoan.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonTKTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTKTaiKhoan_ItemClick);
             // 
             // barButtonTKKhachHang
             // 
