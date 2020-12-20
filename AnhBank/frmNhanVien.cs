@@ -106,7 +106,7 @@ namespace AnhBank
             if (MessageBox.Show("Bạn có thật sự muốn xóa nhân viên này ?? ", "Xác nhận",
                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                manv = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
+                manv = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString().Trim();
                 int result = Program.ExecSqlNonQuery("UPDATE NHANVIEN SET TrangThaiXoa = 1 WHERE MANV = '"+manv+"'");
                 if(result == 0)
                 {
@@ -164,14 +164,14 @@ namespace AnhBank
             try
             {
                 SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimNhanVien '" + txtMaNV.Text + "'");
-                if (result != null && trangthai == them)
+                if (result.HasRows && trangthai == them)
                 {
                     MessageBox.Show("Đã có thông tin nhân viên với mã nhân viên này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMaNV.Focus();
                     result.Close();
                     return;
-
                 }
+                result.Close();
 
             }
             catch (SqlException ex)

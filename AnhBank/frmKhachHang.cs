@@ -79,7 +79,7 @@ namespace AnhBank
             {
                 // kiem tra da tao tai khoan chua
                 SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimTaiKhoanCuaKhachHang '" + txtCMND.Text + "'");
-                if (result != null && result.HasRows)
+                if (result.HasRows)
                 {
                     MessageBox.Show("Không được xóa khách hàng\nKhách hàng đã mở tài khoản!",
                         "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -182,8 +182,8 @@ namespace AnhBank
             }
             try
             {
-                SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimKhachHang '" + txtCMND.Text + "'");
-                if (result != null && trangthai == them)
+                SqlDataReader result = Program.ExecSqlDataReader("SELECT * FROM KhachHang WHERE CMND = '" + txtCMND.Text + "'");
+                if (result.HasRows && trangthai == them)
                 {
                     if (result.HasRows)
                     {
@@ -193,6 +193,7 @@ namespace AnhBank
                         return;
                     }
                 }
+                result.Close();
 
             }
             catch (SqlException ex)

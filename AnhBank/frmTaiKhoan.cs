@@ -114,8 +114,8 @@ namespace AnhBank
             }*/
             Console.WriteLine(spinEtSoDu.Text);
             // Kiểm tra CMND đã có thông tin chưa
-            SqlDataReader result = Program.ExecSqlDataReader("exec sp_TimKhachHang '" + txtCMND.Text + "'");
-            if (result == null)
+            SqlDataReader result = Program.ExecSqlDataReader("SELECT * FROM KhachHang WHERE CMND = '" + txtCMND.Text + "'");
+            if (!result.HasRows)
             {
                 if (MessageBox.Show("Số CMND này chưa có thông tin\nBạn có muốn tạo thông tin cho số CMND này?", "Cảnh báo",
                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -129,9 +129,10 @@ namespace AnhBank
                         f.Show();
                     }
                 }
+                result.Close();
                 return;
             }
-            else result.Close();
+            result.Close();
             // Kiểm tra đã tồn tại tài khoản này chưa
             SqlDataReader result2 = Program.ExecSqlDataReader("exec SP_TimTaiKhoan '" + txtStk.Text + "'");
             if (result2.HasRows)
@@ -183,8 +184,8 @@ namespace AnhBank
 
         private void btnKiemTra_Click(object sender, EventArgs e)
         {
-            SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimKhachHang '" + txtCMND.Text + "'");
-            if (result == null)
+            SqlDataReader result = Program.ExecSqlDataReader("SELECT * FROM KhachHang WHERE CMND = '" + txtCMND.Text + "'");
+            if (!result.HasRows)
             {
                 if (MessageBox.Show("Số CMND này chưa có thông tin\nBạn có muốn tạo thông tin cho số CMND này?", "Cảnh báo",
                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -198,25 +199,26 @@ namespace AnhBank
                         f.Show();
                     }
                 }
+                result.Close();
             }
             else
             {
-                result.Read();
-                String thongTin = "SỐ CMND: " + result.GetString(0) + "\n";
-                thongTin += ("HỌ TÊN: " + result.GetString(1) + " " + result.GetString(2) + "\n");
-                thongTin += ("PHÁI: " + result.GetString(4) + "\n");
-                thongTin += ("ĐỊA CHỈ: " + result.GetString(3) + "\n");
-                thongTin += ("SĐT: " + result.GetString(6));
-                MessageBox.Show("Số CMND này hợp lệ.\n" + thongTin, "Thông tin",
-                      MessageBoxButtons.OK, MessageBoxIcon.Information);
-                result.Close();
+                    result.Read();
+                    String thongTin = "SỐ CMND: " + result.GetString(0) + "\n";
+                    thongTin += ("HỌ TÊN: " + result.GetString(1) + " " + result.GetString(2) + "\n");
+                    thongTin += ("PHÁI: " + result.GetString(4) + "\n");
+                    thongTin += ("ĐỊA CHỈ: " + result.GetString(3) + "\n");
+                    thongTin += ("SĐT: " + result.GetString(6));
+                    MessageBox.Show("Số CMND này hợp lệ.\n" + thongTin, "Thông tin",
+                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    result.Close();
             }
         }
 
         private void btnHienThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             String CMND = ((DataRowView)bdsTK[bdsTK.Position])["CMND"].ToString();
-            SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimKhachHang '" + CMND + "'");
+            SqlDataReader result = Program.ExecSqlDataReader("SELECT * FROM KhachHang WHERE CMND = '" + CMND + "'");
             if (result != null && result.HasRows)
             {
                 result.Read();

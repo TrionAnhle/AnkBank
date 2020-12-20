@@ -35,6 +35,12 @@
             this.tableAdapterManager = new AnhBank.DSTableAdapters.TableAdapterManager();
             this.gD_GOIRUTGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAGD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOTK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLOAIGD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYGD = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnKiemTra = new System.Windows.Forms.Button();
             this.btnHuyBo = new System.Windows.Forms.Button();
@@ -50,12 +56,6 @@
             this.spinEditSoTien = new DevExpress.XtraEditors.SpinEdit();
             this.txtMaNV = new DevExpress.XtraEditors.TextEdit();
             this.dateEditNgay = new DevExpress.XtraEditors.DateEdit();
-            this.colMAGD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLOAIGD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYGD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTIEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsGRTien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD_GOIRUTGridControl)).BeginInit();
@@ -117,6 +117,60 @@
             this.colMANV});
             this.gridView1.GridControl = this.gD_GOIRUTGridControl;
             this.gridView1.Name = "gridView1";
+            // 
+            // colMAGD
+            // 
+            this.colMAGD.Caption = "MÃ GD";
+            this.colMAGD.FieldName = "MAGD";
+            this.colMAGD.Name = "colMAGD";
+            this.colMAGD.Visible = true;
+            this.colMAGD.VisibleIndex = 0;
+            this.colMAGD.Width = 60;
+            // 
+            // colSOTK
+            // 
+            this.colSOTK.Caption = "STK";
+            this.colSOTK.FieldName = "SOTK";
+            this.colSOTK.Name = "colSOTK";
+            this.colSOTK.Visible = true;
+            this.colSOTK.VisibleIndex = 1;
+            this.colSOTK.Width = 90;
+            // 
+            // colLOAIGD
+            // 
+            this.colLOAIGD.Caption = "LOẠI GD";
+            this.colLOAIGD.FieldName = "LOAIGD";
+            this.colLOAIGD.Name = "colLOAIGD";
+            this.colLOAIGD.Visible = true;
+            this.colLOAIGD.VisibleIndex = 2;
+            this.colLOAIGD.Width = 90;
+            // 
+            // colNGAYGD
+            // 
+            this.colNGAYGD.Caption = "NGÀY";
+            this.colNGAYGD.FieldName = "NGAYGD";
+            this.colNGAYGD.Name = "colNGAYGD";
+            this.colNGAYGD.Visible = true;
+            this.colNGAYGD.VisibleIndex = 3;
+            this.colNGAYGD.Width = 70;
+            // 
+            // colSOTIEN
+            // 
+            this.colSOTIEN.Caption = "SỐ TIỀN";
+            this.colSOTIEN.FieldName = "SOTIEN";
+            this.colSOTIEN.Name = "colSOTIEN";
+            this.colSOTIEN.Visible = true;
+            this.colSOTIEN.VisibleIndex = 4;
+            this.colSOTIEN.Width = 102;
+            // 
+            // colMANV
+            // 
+            this.colMANV.Caption = "MÃ NV";
+            this.colMANV.FieldName = "MANV";
+            this.colMANV.Name = "colMANV";
+            this.colMANV.Visible = true;
+            this.colMANV.VisibleIndex = 5;
+            this.colMANV.Width = 58;
             // 
             // groupBox1
             // 
@@ -229,6 +283,7 @@
             // 
             // cmbLoai
             // 
+            this.cmbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoai.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbLoai.FormattingEnabled = true;
             this.cmbLoai.Location = new System.Drawing.Point(320, 223);
@@ -276,6 +331,7 @@
             // 
             // txtMaNV
             // 
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Location = new System.Drawing.Point(320, 157);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,6 +342,7 @@
             // dateEditNgay
             // 
             this.dateEditNgay.EditValue = null;
+            this.dateEditNgay.Enabled = false;
             this.dateEditNgay.Location = new System.Drawing.Point(80, 157);
             this.dateEditNgay.Name = "dateEditNgay";
             this.dateEditNgay.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -296,60 +353,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgay.Size = new System.Drawing.Size(150, 28);
             this.dateEditNgay.TabIndex = 0;
-            // 
-            // colMAGD
-            // 
-            this.colMAGD.Caption = "MÃ GD";
-            this.colMAGD.FieldName = "MAGD";
-            this.colMAGD.Name = "colMAGD";
-            this.colMAGD.Visible = true;
-            this.colMAGD.VisibleIndex = 0;
-            this.colMAGD.Width = 60;
-            // 
-            // colSOTK
-            // 
-            this.colSOTK.Caption = "STK";
-            this.colSOTK.FieldName = "SOTK";
-            this.colSOTK.Name = "colSOTK";
-            this.colSOTK.Visible = true;
-            this.colSOTK.VisibleIndex = 1;
-            this.colSOTK.Width = 90;
-            // 
-            // colLOAIGD
-            // 
-            this.colLOAIGD.Caption = "LOẠI GD";
-            this.colLOAIGD.FieldName = "LOAIGD";
-            this.colLOAIGD.Name = "colLOAIGD";
-            this.colLOAIGD.Visible = true;
-            this.colLOAIGD.VisibleIndex = 2;
-            this.colLOAIGD.Width = 90;
-            // 
-            // colNGAYGD
-            // 
-            this.colNGAYGD.Caption = "NGÀY";
-            this.colNGAYGD.FieldName = "NGAYGD";
-            this.colNGAYGD.Name = "colNGAYGD";
-            this.colNGAYGD.Visible = true;
-            this.colNGAYGD.VisibleIndex = 3;
-            this.colNGAYGD.Width = 70;
-            // 
-            // colSOTIEN
-            // 
-            this.colSOTIEN.Caption = "SỐ TIỀN";
-            this.colSOTIEN.FieldName = "SOTIEN";
-            this.colSOTIEN.Name = "colSOTIEN";
-            this.colSOTIEN.Visible = true;
-            this.colSOTIEN.VisibleIndex = 4;
-            this.colSOTIEN.Width = 102;
-            // 
-            // colMANV
-            // 
-            this.colMANV.Caption = "MÃ NV";
-            this.colMANV.FieldName = "MANV";
-            this.colMANV.Name = "colMANV";
-            this.colMANV.Visible = true;
-            this.colMANV.VisibleIndex = 5;
-            this.colMANV.Width = 58;
             // 
             // frmGoiRutTien
             // 

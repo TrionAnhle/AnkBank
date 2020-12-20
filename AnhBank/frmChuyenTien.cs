@@ -33,8 +33,16 @@ namespace AnhBank
             DS.EnforceConstraints = false;
             gridView1.OptionsBehavior.Editable = false;
             // TODO: This line of code loads data into the 'dS.GD_CHUYENTIEN' table. You can move, or remove it, as needed.
-            this.gD_CHUYENTIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.gD_CHUYENTIENTableAdapter.Fill(this.DS.GD_CHUYENTIEN);
+            Program.mlogin = Program.mloginDN;
+            Program.password = Program.passwordDN;
+            Program.servername = Program.currentServer;
+            if (Program.KetNoi() == 0)
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            else
+            {
+                this.gD_CHUYENTIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.gD_CHUYENTIENTableAdapter.Fill(this.DS.GD_CHUYENTIEN);
+            }
 
             dateEditNgay.DateTime = DateTime.Now;
             string[] ngay = DateTime.Now.ToString().Split(' ');
@@ -68,7 +76,7 @@ namespace AnhBank
             if (spinEditSoTien.Value <= 0)
             {
                 MessageBox.Show("Số tiền chuyển phải lớn hơn 0", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSTKNhan.Focus();
+                spinEditSoTien.Focus();
                 return;
             }
             // kiem tra ton tai tai khoan
@@ -90,7 +98,16 @@ namespace AnhBank
                 return;
             }
             result2.Close();
-
+            // chuyen ve chi nhanh hien tai
+            Program.mlogin = Program.mloginDN;
+            Program.password = Program.passwordDN;
+            Program.servername = Program.currentServer;
+            if (Program.KetNoi() == 0)
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            else
+            {
+                this.gD_CHUYENTIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            }
             // thuc hien giao dich
             string ngay = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             String sql = "INSERT INTO GD_CHUYENTIEN(SOTK_CHUYEN, SOTK_NHAN, SOTIEN, NGAYGD, MANV) ";
@@ -100,9 +117,6 @@ namespace AnhBank
             sql += ("'" + ngay + "', ");
             sql += (" " + txtMaNV.Text + ")");
             int ret = Program.ExecSqlNonQuery(sql);
-
-            Console.WriteLine(sql);
-
             if(ret == 0)
             {           
                 int val = Program.ExecSqlNonQuery("exec SP_ChuyenTien '" + txtSTKChuyen.Text + "','"

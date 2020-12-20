@@ -19,6 +19,7 @@ namespace AnhBank
         public static String connstr;
         public static SqlDataReader myReader;
         public static String servername = "";
+        public static String currentServer = "";
         public static String username = "";
         public static String mlogin = "";
         public static String password = "";

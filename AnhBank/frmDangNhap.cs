@@ -45,10 +45,14 @@ namespace AnhBank
             }
 
             Program.mChinhanh = cmBoxServerName.SelectedIndex;
+            Program.currentServer = cmBoxServerName.SelectedValue.ToString();
             Program.bds_dspm = bdsPM;
             Program.mloginDN = Program.mlogin;
             Program.passwordDN = Program.password;
             SqlDataReader result = Program.ExecSqlDataReader("exec SP_DANGNHAP '" + Program.mlogin + "'");
+
+            Console.WriteLine(Program.mloginDN + "\n" + Program.passwordDN + "\n" + Program.mChinhanh);
+
             if (result.HasRows)
             {
                 result.Read();
