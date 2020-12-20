@@ -45,6 +45,10 @@ namespace AnhBank
 
             macn = Program.getTenChiNhanh();
 
+            dateEditNgay.DateTime = DateTime.Now;
+            string[] ngay = DateTime.Now.ToString().Split(' ');
+            dateEditNgay.Text = ngay[0];
+
         }
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,6 +88,11 @@ namespace AnhBank
             bdsTK.AddNew();
             cmbChiNhanh.Enabled = false;
             txtMaCN.Text = macn;
+
+            dateEditNgay.DateTime = DateTime.Now;
+            string[] ngay = DateTime.Now.ToString().Split(' ');
+            dateEditNgay.Text = ngay[0];
+
 
             this.spinEtSoDu.Properties.MinValue = 0;
             spinEtSoDu.Text = "0";

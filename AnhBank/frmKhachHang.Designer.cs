@@ -390,7 +390,6 @@
             // 
             // colCMND
             // 
-            this.colCMND.Caption = "SỐ CMND";
             this.colCMND.FieldName = "CMND";
             this.colCMND.Name = "colCMND";
             this.colCMND.Visible = true;
@@ -404,7 +403,6 @@
             this.colHO.Name = "colHO";
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 119;
             // 
             // colTEN
             // 
@@ -413,7 +411,7 @@
             this.colTEN.Name = "colTEN";
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 130;
+            this.colTEN.Width = 125;
             // 
             // colDIACHI
             // 
@@ -422,7 +420,7 @@
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 3;
-            this.colDIACHI.Width = 200;
+            this.colDIACHI.Width = 210;
             // 
             // colPHAI
             // 
@@ -431,7 +429,7 @@
             this.colPHAI.Name = "colPHAI";
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 4;
-            this.colPHAI.Width = 80;
+            this.colPHAI.Width = 40;
             // 
             // colNGAYCAP
             // 
@@ -440,7 +438,7 @@
             this.colNGAYCAP.Name = "colNGAYCAP";
             this.colNGAYCAP.Visible = true;
             this.colNGAYCAP.VisibleIndex = 5;
-            this.colNGAYCAP.Width = 99;
+            this.colNGAYCAP.Width = 124;
             // 
             // colSODT
             // 
@@ -449,7 +447,7 @@
             this.colSODT.Name = "colSODT";
             this.colSODT.Visible = true;
             this.colSODT.VisibleIndex = 6;
-            this.colSODT.Width = 99;
+            this.colSODT.Width = 124;
             // 
             // colMACN
             // 
@@ -458,7 +456,7 @@
             this.colMACN.Name = "colMACN";
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 7;
-            this.colMACN.Width = 80;
+            this.colMACN.Width = 150;
             // 
             // grBoxThongTin
             // 
@@ -633,14 +631,6 @@
         private System.Windows.Forms.GroupBox grBoxThongTin;
         private DevExpress.XtraGrid.GridControl khachHangGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colCMND;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYCAP;
-        private DevExpress.XtraGrid.Columns.GridColumn colSODT;
-        private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private System.Windows.Forms.ComboBox cmbPhai;
         private DevExpress.XtraEditors.TextEdit txtMaCN;
         private DevExpress.XtraEditors.TextEdit txtSdt;
@@ -649,5 +639,13 @@
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtCMND;
+        private DevExpress.XtraGrid.Columns.GridColumn colCMND;
+        private DevExpress.XtraGrid.Columns.GridColumn colHO;
+        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
+        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYCAP;
+        private DevExpress.XtraGrid.Columns.GridColumn colSODT;
+        private DevExpress.XtraGrid.Columns.GridColumn colMACN;
     }
 }

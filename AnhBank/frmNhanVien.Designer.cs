@@ -388,7 +388,6 @@
             this.colMANV.Name = "colMANV";
             this.colMANV.Visible = true;
             this.colMANV.VisibleIndex = 0;
-            this.colMANV.Width = 100;
             // 
             // colHO
             // 
@@ -397,7 +396,6 @@
             this.colHO.Name = "colHO";
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 80;
             // 
             // colTEN
             // 
@@ -406,7 +404,6 @@
             this.colTEN.Name = "colTEN";
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 155;
             // 
             // colDIACHI
             // 
@@ -415,7 +412,7 @@
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 3;
-            this.colDIACHI.Width = 204;
+            this.colDIACHI.Width = 210;
             // 
             // colPHAI
             // 
@@ -424,7 +421,7 @@
             this.colPHAI.Name = "colPHAI";
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 4;
-            this.colPHAI.Width = 80;
+            this.colPHAI.Width = 40;
             // 
             // colSODT
             // 
@@ -433,16 +430,13 @@
             this.colSODT.Name = "colSODT";
             this.colSODT.Visible = true;
             this.colSODT.VisibleIndex = 5;
-            this.colSODT.Width = 166;
             // 
             // colMACN
             // 
-            this.colMACN.Caption = "MÃ CN";
             this.colMACN.FieldName = "MACN";
             this.colMACN.Name = "colMACN";
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 6;
-            this.colMACN.Width = 174;
             // 
             // colTrangThaiXoa
             // 

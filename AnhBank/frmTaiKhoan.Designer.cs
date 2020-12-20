@@ -33,6 +33,7 @@
             System.Windows.Forms.Label cMNDLabel;
             System.Windows.Forms.Label sODULabel;
             System.Windows.Forms.Label mACNLabel;
+            System.Windows.Forms.Label nGAYMOTKLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaiKhoan));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -42,6 +43,7 @@
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnHienThi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -61,18 +63,20 @@
             this.colCMND = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSODU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMACN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYMOTK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grBoxThongTin = new System.Windows.Forms.GroupBox();
+            this.dateEditNgay = new DevExpress.XtraEditors.DateEdit();
             this.btnKiemTra = new System.Windows.Forms.Button();
             this.txtMaCN = new DevExpress.XtraEditors.TextEdit();
             this.spinEtSoDu = new DevExpress.XtraEditors.SpinEdit();
             this.txtCMND = new DevExpress.XtraEditors.TextEdit();
             this.txtStk = new DevExpress.XtraEditors.TextEdit();
             this.v_DS_PHANMANHTableAdapter = new AnhBank.DSPhanManhTableAdapters.V_DS_PHANMANHTableAdapter();
-            this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             sOTKLabel = new System.Windows.Forms.Label();
             cMNDLabel = new System.Windows.Forms.Label();
             sODULabel = new System.Windows.Forms.Label();
             mACNLabel = new System.Windows.Forms.Label();
+            nGAYMOTKLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
@@ -82,6 +86,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.taiKhoanGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.grBoxThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditNgay.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEtSoDu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).BeginInit();
@@ -123,6 +129,15 @@
             mACNLabel.Size = new System.Drawing.Size(60, 17);
             mACNLabel.TabIndex = 6;
             mACNLabel.Text = "MÃ CN:";
+            // 
+            // nGAYMOTKLabel
+            // 
+            nGAYMOTKLabel.AutoSize = true;
+            nGAYMOTKLabel.Location = new System.Drawing.Point(32, 154);
+            nGAYMOTKLabel.Name = "nGAYMOTKLabel";
+            nGAYMOTKLabel.Size = new System.Drawing.Size(81, 17);
+            nGAYMOTKLabel.TabIndex = 9;
+            nGAYMOTKLabel.Text = "NGÀY MỞ:";
             // 
             // barManager1
             // 
@@ -218,13 +233,22 @@
             this.btnHienThi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnHienThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHienThi_ItemClick);
             // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.Caption = "Làm mới";
+            this.btnLamMoi.Id = 6;
+            this.btnLamMoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLamMoi.ImageOptions.SvgImage")));
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnLamMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLamMoi_ItemClick);
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(984, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(1013, 24);
             // 
             // barDockControlBottom
             // 
@@ -232,7 +256,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 511);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(984, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1013, 0);
             // 
             // barDockControlLeft
             // 
@@ -246,7 +270,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(984, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1013, 24);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 487);
             // 
@@ -257,7 +281,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 60);
+            this.panel1.Size = new System.Drawing.Size(1013, 60);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -325,7 +349,7 @@
             this.taiKhoanGridControl.MainView = this.gridView1;
             this.taiKhoanGridControl.MenuManager = this.barManager1;
             this.taiKhoanGridControl.Name = "taiKhoanGridControl";
-            this.taiKhoanGridControl.Size = new System.Drawing.Size(984, 220);
+            this.taiKhoanGridControl.Size = new System.Drawing.Size(1013, 220);
             this.taiKhoanGridControl.TabIndex = 6;
             this.taiKhoanGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -336,7 +360,8 @@
             this.colSOTK,
             this.colCMND,
             this.colSODU,
-            this.colMACN});
+            this.colMACN,
+            this.colNGAYMOTK});
             this.gridView1.GridControl = this.taiKhoanGridControl;
             this.gridView1.Name = "gridView1";
             // 
@@ -350,7 +375,6 @@
             // 
             // colCMND
             // 
-            this.colCMND.Caption = "SỐ CMND";
             this.colCMND.FieldName = "CMND";
             this.colCMND.Name = "colCMND";
             this.colCMND.Visible = true;
@@ -358,7 +382,7 @@
             // 
             // colSODU
             // 
-            this.colSODU.Caption = "SÔ DƯ";
+            this.colSODU.Caption = "SỐ DƯ";
             this.colSODU.DisplayFormat.FormatString = "c0";
             this.colSODU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSODU.FieldName = "SODU";
@@ -374,8 +398,18 @@
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 2;
             // 
+            // colNGAYMOTK
+            // 
+            this.colNGAYMOTK.Caption = "NGÀY MỞ";
+            this.colNGAYMOTK.FieldName = "NGAYMOTK";
+            this.colNGAYMOTK.Name = "colNGAYMOTK";
+            this.colNGAYMOTK.Visible = true;
+            this.colNGAYMOTK.VisibleIndex = 4;
+            // 
             // grBoxThongTin
             // 
+            this.grBoxThongTin.Controls.Add(nGAYMOTKLabel);
+            this.grBoxThongTin.Controls.Add(this.dateEditNgay);
             this.grBoxThongTin.Controls.Add(this.btnKiemTra);
             this.grBoxThongTin.Controls.Add(mACNLabel);
             this.grBoxThongTin.Controls.Add(this.txtMaCN);
@@ -388,10 +422,25 @@
             this.grBoxThongTin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grBoxThongTin.Location = new System.Drawing.Point(0, 304);
             this.grBoxThongTin.Name = "grBoxThongTin";
-            this.grBoxThongTin.Size = new System.Drawing.Size(984, 207);
+            this.grBoxThongTin.Size = new System.Drawing.Size(1013, 207);
             this.grBoxThongTin.TabIndex = 7;
             this.grBoxThongTin.TabStop = false;
             this.grBoxThongTin.Text = "Thông tin tài khoản";
+            // 
+            // dateEditNgay
+            // 
+            this.dateEditNgay.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTK, "NGAYMOTK", true));
+            this.dateEditNgay.EditValue = null;
+            this.dateEditNgay.Enabled = false;
+            this.dateEditNgay.Location = new System.Drawing.Point(131, 153);
+            this.dateEditNgay.MenuManager = this.barManager1;
+            this.dateEditNgay.Name = "dateEditNgay";
+            this.dateEditNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditNgay.Size = new System.Drawing.Size(202, 20);
+            this.dateEditNgay.TabIndex = 10;
             // 
             // btnKiemTra
             // 
@@ -453,20 +502,11 @@
             // 
             this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
             // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.Caption = "Làm mới";
-            this.btnLamMoi.Id = 6;
-            this.btnLamMoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnLamMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLamMoi_ItemClick);
-            // 
             // frmTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 511);
+            this.ClientSize = new System.Drawing.Size(1013, 511);
             this.Controls.Add(this.grBoxThongTin);
             this.Controls.Add(this.taiKhoanGridControl);
             this.Controls.Add(this.panel1);
@@ -491,6 +531,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.grBoxThongTin.ResumeLayout(false);
             this.grBoxThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditNgay.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEtSoDu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).EndInit();
@@ -527,15 +569,17 @@
         private DevExpress.XtraEditors.SpinEdit spinEtSoDu;
         private DevExpress.XtraEditors.TextEdit txtCMND;
         private DevExpress.XtraEditors.TextEdit txtStk;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOTK;
-        private DevExpress.XtraGrid.Columns.GridColumn colCMND;
-        private DevExpress.XtraGrid.Columns.GridColumn colSODU;
-        private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private DSPhanManh dSPhanManh;
         private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
         private DSPhanManhTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private DevExpress.XtraBars.BarButtonItem btnHienThi;
         private System.Windows.Forms.Button btnKiemTra;
         private DevExpress.XtraBars.BarButtonItem btnLamMoi;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOTK;
+        private DevExpress.XtraGrid.Columns.GridColumn colCMND;
+        private DevExpress.XtraGrid.Columns.GridColumn colSODU;
+        private DevExpress.XtraGrid.Columns.GridColumn colMACN;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYMOTK;
+        private DevExpress.XtraEditors.DateEdit dateEditNgay;
     }
 }
