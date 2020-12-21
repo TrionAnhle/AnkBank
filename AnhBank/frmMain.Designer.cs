@@ -99,6 +99,7 @@
             this.barButtonTKKhachHang.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_team_64px;
             this.barButtonTKKhachHang.Name = "barButtonTKKhachHang";
             this.barButtonTKKhachHang.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonTKKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTKKhachHang_ItemClick);
             // 
             // barButtonDangNhap
             // 

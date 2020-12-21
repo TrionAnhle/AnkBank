@@ -63,6 +63,16 @@ namespace AnhBank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconPDF {
+            get {
+                object obj = ResourceManager.GetObject("iconPDF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_administrator_male_40px {
             get {
                 object obj = ResourceManager.GetObject("icons8_administrator_male_40px", resourceCulture);
@@ -226,6 +236,16 @@ namespace AnhBank.Properties {
         internal static System.Drawing.Bitmap icons8_unlock_40px {
             get {
                 object obj = ResourceManager.GetObject("icons8_unlock_40px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Pdf_File_512 {
+            get {
+                object obj = ResourceManager.GetObject("Pdf-File-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

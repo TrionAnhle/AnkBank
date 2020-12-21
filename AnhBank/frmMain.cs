@@ -119,7 +119,26 @@ namespace AnhBank
 
         private void barButtonTKTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+            Form frm = this.CheckExits(typeof(XfrmDSTaiKhoanTheoThoiGian));
+            if (frm != null) frm.Activate();
+            else
+            {
+                XfrmDSTaiKhoanTheoThoiGian f = new XfrmDSTaiKhoanTheoThoiGian();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonTKKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExits(typeof(XfrmDSKhachHang));
+            if (frm != null) frm.Activate();
+            else
+            {
+                XfrmDSKhachHang f = new XfrmDSKhachHang();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }
