@@ -8,13 +8,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace AnhBank
 {
     public partial class frmNhanVien : Form
     {
-        int vitri = 0,trangthai=-1,them=0,sua=1;
+        int vitri = 0,trangthai=-1,them=0,sua=1,xoa=2;
         String macn = "";
+        Stack MyStack = new Stack();
+
         public frmNhanVien()
         {
             InitializeComponent();
@@ -54,6 +57,8 @@ namespace AnhBank
             else cmbChiNhanh.Enabled = false;
             macn = Program.getTenChiNhanh();
 
+            btnUndo.Enabled = false;
+            btnRedo.Enabled = false;
         }
 
         
@@ -98,6 +103,22 @@ namespace AnhBank
             grBoxThongTin.Enabled = true;
             barBtnThemNV.Enabled = barBtnSuaNV.Enabled = barBtnXoaNV.Enabled = false;
             barBtnGhiNV.Enabled = barBtnPhucHoiNV.Enabled = true;
+
+            NhanVien nv = new NhanVien();
+            nv.setThaoTac(sua);
+            nv.setHo(txtHoNV.Text);
+            nv.setTen(txtTenNV.Text);
+            nv.setDiaChi(txtDiaChiNV.Text);
+            nv.setSdt(txtSdtNV.Text);
+
+            string manv = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString().Trim();
+            string phai = ((DataRowView)bdsNV[bdsNV.Position])["PHAI"].ToString().Trim();
+
+            nv.setMaNV(manv);
+            nv.setPhai(phai);
+            MyStack.Push(nv);
+            btnUndo.Enabled = false;
+
         }
 
         private void barBtnXoaNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -112,12 +133,37 @@ namespace AnhBank
                 {
                     this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
-                }else
+
+                    NhanVien nv = new NhanVien();
+                    nv.setThaoTac(xoa);
+                    nv.setMaNV(manv);
+                    MyStack.Push(nv);
+                    btnUndo.Enabled = true;
+                }
+                else
                 {
                     MessageBox.Show("Xóa nhân viên thất bại\nMời bạn thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             if (bdsNV.Count == 0) barBtnXoaNV.Enabled = false;
+        }
+
+        private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            NhanVien nv = (NhanVien) MyStack.Pop();
+            if(nv.getThaoTac() == them)
+            {
+                nv.delete();
+            }else if(nv.getThaoTac() == xoa)
+            {
+                nv.insert();
+            }else
+            {
+                nv.update();
+            }
+            if (MyStack.Count <= 0) btnUndo.Enabled = false;
+            this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
         }
 
         private void barBtnThemNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -133,6 +179,7 @@ namespace AnhBank
             txtMaCNNV.Text = macn;
             barBtnThemNV.Enabled = barBtnSuaNV.Enabled = barBtnXoaNV.Enabled = false;
             barBtnGhiNV.Enabled = barBtnPhucHoiNV.Enabled = true;
+            btnUndo.Enabled = false;
         }
 
         private void barBtnGhiNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -186,7 +233,15 @@ namespace AnhBank
                 bdsNV.ResetCurrentItem();
                 this.nhanVienTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.nhanVienTableAdapter.Update(this.DS.NhanVien);
-
+                if(trangthai == them)
+                {
+                    NhanVien nv = new NhanVien();
+                    nv.setThaoTac(them);
+                    nv.setMaNV(txtMaNV.Text);
+                    MyStack.Push(nv);
+                    btnUndo.Enabled = true;
+                }
+                btnUndo.Enabled = true;
             }
             catch (SqlException ex)
             {
@@ -214,6 +269,10 @@ namespace AnhBank
             barBtnGhiNV.Enabled = barBtnPhucHoiNV.Enabled = false;
 
             cmbChiNhanh.Enabled = true;
+
+            btnUndo.Enabled = true;
+            if (trangthai == sua) MyStack.Pop();
+            if (MyStack.Count <= 0) btnUndo.Enabled = false;
         }
     }
 }

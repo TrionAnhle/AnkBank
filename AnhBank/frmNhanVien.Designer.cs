@@ -45,6 +45,8 @@
             this.barBtnXoaNV = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnGhiNV = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnPhucHoiNV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRedo = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -189,9 +191,11 @@
             this.barBtnSuaNV,
             this.barBtnXoaNV,
             this.barBtnGhiNV,
-            this.barBtnPhucHoiNV});
+            this.barBtnPhucHoiNV,
+            this.btnUndo,
+            this.btnRedo});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 5;
+            this.barManager1.MaxItemId = 7;
             // 
             // bar2
             // 
@@ -204,7 +208,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnSuaNV),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnXoaNV),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnGhiNV),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnPhucHoiNV)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnPhucHoiNV),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnUndo),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnRedo)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -247,13 +253,29 @@
             // 
             // barBtnPhucHoiNV
             // 
-            this.barBtnPhucHoiNV.Caption = "Phục hồi";
+            this.barBtnPhucHoiNV.Caption = "Hủy";
             this.barBtnPhucHoiNV.Id = 4;
-            this.barBtnPhucHoiNV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnPhucHoiNV.ImageOptions.Image")));
-            this.barBtnPhucHoiNV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnPhucHoiNV.ImageOptions.LargeImage")));
+            this.barBtnPhucHoiNV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnPhucHoiNV.ImageOptions.SvgImage")));
             this.barBtnPhucHoiNV.Name = "barBtnPhucHoiNV";
             this.barBtnPhucHoiNV.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.barBtnPhucHoiNV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnPhucHoiNV_ItemClick);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Caption = "Undo";
+            this.btnUndo.Id = 5;
+            this.btnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUndo.ImageOptions.SvgImage")));
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUndo_ItemClick);
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Caption = "Redo";
+            this.btnRedo.Id = 6;
+            this.btnRedo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRedo.ImageOptions.SvgImage")));
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barDockControlTop
             // 
@@ -629,5 +651,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSODT;
         private DevExpress.XtraGrid.Columns.GridColumn colMACN;
         private DevExpress.XtraGrid.Columns.GridColumn colTrangThaiXoa;
+        private DevExpress.XtraBars.BarButtonItem btnUndo;
+        private DevExpress.XtraBars.BarButtonItem btnRedo;
     }
 }
