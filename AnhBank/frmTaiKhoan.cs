@@ -49,6 +49,7 @@ namespace AnhBank
             string[] ngay = DateTime.Now.ToString().Split(' ');
             dateEditNgay.Text = ngay[0];
 
+            
         }
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)

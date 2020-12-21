@@ -383,7 +383,7 @@
             // colSODU
             // 
             this.colSODU.Caption = "SỐ DƯ";
-            this.colSODU.DisplayFormat.FormatString = "c0";
+            this.colSODU.DisplayFormat.FormatString = "N0";
             this.colSODU.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSODU.FieldName = "SODU";
             this.colSODU.Name = "colSODU";
@@ -475,7 +475,7 @@
             this.spinEtSoDu.Name = "spinEtSoDu";
             this.spinEtSoDu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEtSoDu.Properties.DisplayFormat.FormatString = "c0";
+            this.spinEtSoDu.Properties.DisplayFormat.FormatString = "N0";
             this.spinEtSoDu.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinEtSoDu.Size = new System.Drawing.Size(201, 20);
             this.spinEtSoDu.TabIndex = 5;

@@ -203,7 +203,7 @@
             // colSOTIEN
             // 
             this.colSOTIEN.Caption = "TIỀN";
-            this.colSOTIEN.DisplayFormat.FormatString = "c0";
+            this.colSOTIEN.DisplayFormat.FormatString = "N0";
             this.colSOTIEN.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSOTIEN.FieldName = "SOTIEN";
             this.colSOTIEN.Name = "colSOTIEN";
@@ -288,7 +288,7 @@
             this.spinEditSoTien.Properties.Appearance.Options.UseFont = true;
             this.spinEditSoTien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEditSoTien.Properties.DisplayFormat.FormatString = "c0";
+            this.spinEditSoTien.Properties.DisplayFormat.FormatString = "N0";
             this.spinEditSoTien.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinEditSoTien.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.spinEditSoTien.Size = new System.Drawing.Size(187, 28);
