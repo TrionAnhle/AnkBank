@@ -162,7 +162,7 @@ namespace AnhBank
 
         private void kiemTraTonTaiStk(String stk)
         {
-            SqlDataReader result = Program.ExecSqlDataReader("exec SP_TimTaiKhoan '" + stk + "'");
+            SqlDataReader result = Program.ExecSqlDataReader("exec SP_ThongTinTaiKhoan '" + stk + "'");
             if (result.HasRows)
             {
                 result.Read();
@@ -170,7 +170,7 @@ namespace AnhBank
                 thongTin += ("HỌ TÊN: " + result.GetString(1) + " " + result.GetString(2) + "\n");
                 thongTin += ("PHÁI: " + result.GetString(4) + "\n");
                 thongTin += ("ĐỊA CHỈ: " + result.GetString(3) + "\n");
-                thongTin += ("SĐT: " + result.GetString(6));
+                thongTin += ("SĐT: " + result.GetString(6)+"\n");
                 MessageBox.Show(thongTin, "Thông tin",
                       MessageBoxButtons.OK, MessageBoxIcon.Information);
                 result.Close();

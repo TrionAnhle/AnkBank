@@ -23,7 +23,9 @@ namespace AnhBank
         {
             // TODO: This line of code loads data into the 'dSPhanManh.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             this.v_DS_PHANMANHTableAdapter.Fill(this.dSPhanManh.V_DS_PHANMANH);
-
+            cmbChiNhanh.SelectedIndex = Program.mChinhanh;
+            if (Program.mGroup == "NGANHANG") cmbChiNhanh.Enabled = true;
+            else cmbChiNhanh.Enabled = false;
         }
 
         private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +58,17 @@ namespace AnhBank
 
         private void btnIn_Click(object sender, EventArgs e)
         {
+            if(dETu.Text.Trim() == "")
+            {
+                MessageBox.Show("Bạn chưa nhập ngày bắt đầu", "Cảnh báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                dETu.Focus();return;
+            }
+            if (dEDen.Text.Trim()  == "")
+            {
+                MessageBox.Show("Bạn chưa nhập ngày kết thúc", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dEDen.Focus(); return;
+            }
+
             Xr_DSTaiKhoanTheoThoiGian rp = new Xr_DSTaiKhoanTheoThoiGian(dETu.DateTime,dEDen.DateTime);
             String tu = dETu.DateTime.ToString("dd/MM/yyyy");
             String den = dEDen.DateTime.ToString("dd/MM/yyyy");

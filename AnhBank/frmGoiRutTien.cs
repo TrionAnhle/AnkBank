@@ -60,7 +60,25 @@ namespace AnhBank
 
         private void btnKiemTra_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(cmbLoai.SelectedValue);
+            SqlDataReader result = Program.ExecSqlDataReader("exec SP_ThongTinTaiKhoan '" + txtStk.Text + "'");
+            if (result.HasRows)
+            {
+                result.Read();
+                String thongTin = "SỐ CMND: " + result.GetString(0) + "\n";
+                thongTin += ("HỌ TÊN: " + result.GetString(1) + " " + result.GetString(2) + "\n");
+                thongTin += ("PHÁI: " + result.GetString(4) + "\n");
+                thongTin += ("ĐỊA CHỈ: " + result.GetString(3) + "\n");
+                thongTin += ("SĐT: " + result.GetString(6) + "\n");
+                MessageBox.Show(thongTin, "Thông tin",
+                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+                result.Close();
+            }
+            else
+            {
+                result.Close();
+                MessageBox.Show("Số tài khoản không tồn tại", "Cảnh báo",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnThucHien_Click(object sender, EventArgs e)
