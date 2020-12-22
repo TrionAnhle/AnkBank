@@ -68,16 +68,19 @@ namespace AnhBank
                     if (trangthai.GetInt32(0) == 1)
                     {
                         MessageBox.Show("Bạn không thể đăng nhập hệ thống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                        trangthai.Close();
+                        
+                        trangthai.Close(); return;
                     }
                     Program.frmChinh.pageQuanLy.Visible = Program.frmChinh.pageThongKe.Visible = true;
                     Program.frmChinh.barButtonThoat.Enabled = true;
                     Program.frmChinh.barButtonDangNhap.Enabled = false;
                     Program.frmChinh.hienThiStatus();
+                    trangthai.Close();
                     this.Close();
                 }
             }
+            if (!result.IsClosed) result.Close();
+          
         }
 
         private void cmBoxServerName_SelectedIndexChanged(object sender, EventArgs e)

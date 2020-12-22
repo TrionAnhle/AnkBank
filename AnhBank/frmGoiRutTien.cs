@@ -89,9 +89,9 @@ namespace AnhBank
                 txtStk.Focus();
                 return;
             }
-            if (spinEditSoTien.Value <= 0)
+            if (spinEditSoTien.Value < 100000)
             {
-                MessageBox.Show("Số tiền chuyển phải lớn hơn 0", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Số tiền giao dịch phải lớn hơn hoặc bằng 100,000", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 spinEditSoTien.Focus();
                 return;
             }

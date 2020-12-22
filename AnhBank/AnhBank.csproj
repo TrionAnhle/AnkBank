@@ -137,6 +137,12 @@
     <Compile Include="XfrmDSKhachHang.Designer.cs">
       <DependentUpon>XfrmDSKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="XfrmDSSaoKeGiaoDich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XfrmDSSaoKeGiaoDich.Designer.cs">
+      <DependentUpon>XfrmDSSaoKeGiaoDich.cs</DependentUpon>
+    </Compile>
     <Compile Include="XfrmDSTaiKhoanTheoThoiGian.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,12 @@
     </Compile>
     <Compile Include="Xr_DanhSachKhachHang.Designer.cs">
       <DependentUpon>Xr_DanhSachKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xr_DSSaoKeGiaoDich.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xr_DSSaoKeGiaoDich.Designer.cs">
+      <DependentUpon>Xr_DSSaoKeGiaoDich.cs</DependentUpon>
     </Compile>
     <Compile Include="Xr_DSTaiKhoanTheoThoiGian.cs">
       <SubType>Component</SubType>
@@ -193,11 +205,17 @@
     <EmbeddedResource Include="XfrmDSKhachHang.resx">
       <DependentUpon>XfrmDSKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XfrmDSSaoKeGiaoDich.resx">
+      <DependentUpon>XfrmDSSaoKeGiaoDich.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XfrmDSTaiKhoanTheoThoiGian.resx">
       <DependentUpon>XfrmDSTaiKhoanTheoThoiGian.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xr_DanhSachKhachHang.resx">
       <DependentUpon>Xr_DanhSachKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xr_DSSaoKeGiaoDich.resx">
+      <DependentUpon>Xr_DSSaoKeGiaoDich.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xr_DSTaiKhoanTheoThoiGian.resx">
       <DependentUpon>Xr_DSTaiKhoanTheoThoiGian.cs</DependentUpon>

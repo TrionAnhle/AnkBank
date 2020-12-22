@@ -195,3 +195,5 @@ D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.Xr_DanhSachKh
 D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.XfrmDSKhachHang.resources
 D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.XfrmDSTaiKhoanTheoThoiGian.resources
 D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.Xr_DSTaiKhoanTheoThoiGian.resources
+D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.Xr_DSSaoKeGiaoDich.resources
+D:\ProgramLangue\C#\CSDL_PhanTan\AnhBank\AnhBank\obj\Debug\AnhBank.XfrmDSSaoKeGiaoDich.resources

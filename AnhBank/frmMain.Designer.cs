@@ -171,6 +171,7 @@
             this.barButtonTKGiaoDich.ImageOptions.Image = global::AnhBank.Properties.Resources.icons8_exchange_40px_11;
             this.barButtonTKGiaoDich.Name = "barButtonTKGiaoDich";
             this.barButtonTKGiaoDich.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonTKGiaoDich.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTKGiaoDich_ItemClick);
             // 
             // pageHeThong
             // 

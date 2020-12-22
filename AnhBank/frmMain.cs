@@ -140,5 +140,17 @@ namespace AnhBank
                 f.Show();
             }
         }
+
+        private void barButtonTKGiaoDich_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExits(typeof(XfrmDSSaoKeGiaoDich));
+            if (frm != null) frm.Activate();
+            else
+            {
+                XfrmDSSaoKeGiaoDich f = new XfrmDSSaoKeGiaoDich();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }
