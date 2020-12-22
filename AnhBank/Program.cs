@@ -104,7 +104,6 @@ namespace AnhBank
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message +"\n"+ex.State);
                 conn.Close();
                 return ex.State; // trang thai lỗi gởi từ RAISERROR trong SQL Server qua
             }

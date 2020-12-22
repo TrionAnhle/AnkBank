@@ -140,11 +140,8 @@ namespace AnhBank
                 }
                 else
                 {
-                    if (ret == 1)
-                    {
                         MessageBox.Show("Số tiền trong tài khoản không đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
-                    }
                 }
             }else
             {
